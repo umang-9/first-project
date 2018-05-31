@@ -5,9 +5,18 @@
   "dependencies": {
     "prop-types": "^15.6.1",
     "react": "^16.4.0",
+    "react-animate-on-scroll": "^2.1.5",
+    "react-animated-css": "^1.0.4",
+    "react-collapsible": "^2.2.0",
     "react-dom": "^16.4.0",
+    "react-form-with-constraints": "^0.8.0",
+    "react-native": "^0.55.4",
+    "react-responsive-accordion": "^1.0.0",
     "react-scripts": "1.1.4",
-    "react-scroll": "^1.7.9"
+    "react-scroll": "^1.7.9",
+    "react-scroll-to": "^1.2.2",
+    "react-scrollable-anchor": "^0.6.1",
+    "react-sticky": "^6.0.2"
   },
   "scripts": {
     "start": "react-scripts start",
