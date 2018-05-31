@@ -22,7 +22,7 @@ export default  class Header extends Component {
                     
                     <Animated animationIn="fadeInDown"animationInDelay="800">
                         <div className="menu">
-                        <Link to="test2" spy={true} smooth={true} duration={1000} offset={-83}> About </Link>
+                        <Link to="test2" spy={true} smooth={true} duration={1000} offset={-80}> About </Link>
                         <Link to="test3" spy={true} smooth={true} duration={1000} offset={-85}> FAQs </Link>
                         </div>
                         </Animated>

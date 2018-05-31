@@ -6,7 +6,7 @@ export default  class Footer extends Component {
       return (
         <footer>
             
-            <ScrollAnimation animateIn='fadeInTop'  delay='500'>
+            <ScrollAnimation animateIn='slideInUp'  delay='500' animateOnce='true'>
                  <div className="container"> 
                     <div className="footer-left">
                         <div className="logo">
