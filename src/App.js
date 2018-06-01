@@ -57,18 +57,18 @@ class App extends Component {
                     
                     <div class="box box1">
                       <div class="box-content">
-                          <Animated animationIn="fadeInLeft" animationInDelay="1200">   
+                      <ScrollAnimation animateIn='slideInLeft'  delay='500' animatePreScroll={false}>   
                             <h3>Clique Meet</h3>
                             <p>Social Interaction App</p>
                             <a class="for-mobile" href="#"></a>
-                          </Animated>
+                            </ScrollAnimation>
                       </div>
                       
-                      <Animated animationIn="fadeInRight" animationInDelay="1200">
+                      <ScrollAnimation animateIn='slideInRight'  delay='800' animateOnce='true' animatePreScroll={false}>
                         <div class="box-image"> 
                           <img src="" alt=""/>
                         </div>
-                      </Animated>
+                        </ScrollAnimation>
                     </div> 
                     
                     <div class="box box2">
@@ -84,7 +84,7 @@ class App extends Component {
                           <div class="box-image">
                             <img src="" alt=""/>
                           </div>
-                          </ScrollAnimation>
+                        </ScrollAnimation>
                     </div>
                     
                     <div class="box box3">

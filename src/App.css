@@ -341,6 +341,9 @@ body .section-title.section-title-white h3 {
 /************** section title close **************/
 
 /************** Top sec ****************/
+.top-sec.section-gapping {
+  padding-top: 120px;
+}
 .top-sec {
   text-align: center;
 }
