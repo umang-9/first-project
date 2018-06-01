@@ -82,7 +82,9 @@ body, #root {
   position: relative;
   width: 100%;
 }
-
+.header-wrap .logo {
+  min-width: 134px;
+}
 /************** header ****************/
 header .container {
   max-width: 1000px;

@@ -198,5 +198,8 @@
     .top-image {
         text-align: center;
     }
+    .box > div {
+        width: 100%;
+    }
     
 }
