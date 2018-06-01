@@ -73,14 +73,14 @@ class App extends Component {
                     
                     <div class="box box2">
                         <div class="box-content">
-                          <ScrollAnimation animateIn='slideInRight'  delay='500' animateOnce='true'>
+                          <ScrollAnimation animateIn='slideInRight'  delay='500' animateOnce='true' animatePreScroll={false}>
                             <h3>Zbods</h3>
                             <p>Boutique Spray Tan</p>
                             <a class="for-mobile" href="#"></a>
                           </ScrollAnimation>
                         </div>
 
-                        <ScrollAnimation animateIn='slideInLeft'  delay='800' animateOnce='true'>
+                        <ScrollAnimation animateIn='slideInLeft'  delay='800' animateOnce='true' animatePreScroll={false}>
                           <div class="box-image">
                             <img src="" alt=""/>
                           </div>
@@ -89,14 +89,14 @@ class App extends Component {
                     
                     <div class="box box3">
                         <div class="box-content">
-                          <ScrollAnimation animateIn='slideInLeft'  delay='500' animateOnce='true'>
+                          <ScrollAnimation animateIn='slideInLeft'  delay='500' animateOnce='true' animatePreScroll={false}>
                             <h3>PolicyMe</h3>
                             <p>Modern Insurance</p>
                             <a class="for-mobile" href="#"></a>
                           </ScrollAnimation>
                         </div>
 
-                        <ScrollAnimation animateIn='slideInRight'  delay='800' animateOnce='true'>
+                        <ScrollAnimation animateIn='slideInRight'  delay='800' animateOnce='true' animatePreScroll={false}>
                           <div class="box-image">
                             <img src="" alt=""/>
                           </div>
@@ -105,14 +105,14 @@ class App extends Component {
 
                     <div class="box box4">
                         <div class="box-content">
-                          <ScrollAnimation animateIn='slideInRight'  delay='500' animateOnce='true'>
+                          <ScrollAnimation animateIn='slideInRight'  delay='500' animateOnce='true' animatePreScroll={false}>
                             <h3>ApnoMed</h3>
                             <p>Medical Innovation</p>
                             <a class="for-mobile" href="#"></a>
                           </ScrollAnimation>
                         </div>
 
-                        <ScrollAnimation animateIn='slideInLeft'  delay='800' animateOnce='true'>
+                        <ScrollAnimation animateIn='slideInLeft'  delay='800' animateOnce='true' animatePreScroll={false}>
                           <div class="box-image">
                             <img src="" alt=""/>
                           </div>
