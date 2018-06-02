@@ -6,12 +6,22 @@
     .top-sec .animated.fadeInUp {
         padding: 0px 0;
     }
+    footer .container {
+        padding: 50px 20px;
+    }
+    .form-sec {
+        max-width: 100%;
+        margin: 0 auto;
+    }
 }
 
 
 /*************************** Mobile view **************************************/ 
 @media screen and (max-width:767px){  
-
+    .App {
+        max-width: 600px;
+        margin: 0 auto;
+    }
     .for-mobile {
       display: block !important;
     }
@@ -195,7 +205,7 @@
         padding-bottom: 50px;
     }
     footer .container {
-        padding: 30px 15px;
+        padding: 30px 20px;
         flex-direction: column-reverse;
     }
     .footer-left, .footer-right {
