@@ -1,4 +1,15 @@
-/************************************************************ Mobile view **************************************************************/ 
+@media screen and (min-width:768px) and (max-width:1023px){ 
+
+    .top-sec h3 {
+        margin-bottom: 30px;
+    }
+    .top-sec .animated.fadeInUp {
+        padding: 200px 0;
+    }
+}
+
+
+/*************************** Mobile view **************************************/ 
 @media screen and (max-width:767px){  
 
     .for-mobile {
@@ -52,6 +63,9 @@
         position: relative;
         width: 100%;
  
+    }
+    .top-sec .animated.fadeInUp {
+        padding: 0px 0 0px;
     }
     .box1 .box-content,
     .box3 .box-content {

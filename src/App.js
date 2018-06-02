@@ -6,34 +6,78 @@ import Header from './Header';
 import Footer from './Footer';
 import { Element, scrollSpy, Events, Link } from 'react-scroll';
 import Collapsible from 'react-collapsible';
-import { FormWithConstraints, FieldFeedbacks, FieldFeedback } from 'react-form-with-constraints';
 import {Animated} from "react-animated-css";
 import ScrollAnimation from 'react-animate-on-scroll';
 
 class App extends Component {
   
-  constructor(props) {
+  constructor(props){
     super(props);
 
-    this.handleChange = this.handleChange.bind(this);
-    this.contactSubmit = this.contactSubmit.bind(this);
-  }
-
-  handleChange(e) {
-    this.form.validateFields(e.currentTarget);
-  }
-
-  contactSubmit(e) {
-    e.preventDefault();
-
-    this.form.validateFields();
-
-    if (!this.form.isValid()) {
-      console.log('form is invalid: do not submit');
-    } else {
-      console.log('form is valid: submit');
+    this.state = {
+        fields: {},
+        errors: {}
     }
-  }
+ }
+
+ handleValidation(){
+     let fields = this.state.fields;
+     let errors = {};
+     let formIsValid = true;
+
+     //Name
+     if(!fields["name"]){
+        formIsValid = false;
+        errors["name"] = "Cannot be empty";
+     }
+
+     if(typeof fields["name"] !== "undefined"){
+          if(!fields["name"].match(/^[a-zA-Z]+$/)){
+              formIsValid = false;
+              errors["name"] = "Only letters";
+          }          
+     }
+
+     //Email
+     if(!fields["email"]){
+        formIsValid = false;
+        errors["email"] = "Cannot be empty";
+     }
+
+     if(typeof fields["email"] !== "undefined"){
+      if(!fields["email"].match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i)){
+        formIsValid = false;
+        errors["email"] = "Email is invalid";
+    }   
+    }
+
+    //Start
+    if(!fields["start"]){
+      formIsValid = false;
+      errors["start"] = "You must select one option";
+   }
+
+
+
+    this.setState({errors: errors});
+    return formIsValid;
+}
+
+contactSubmit(e){
+     e.preventDefault();
+     if(this.handleValidation()){
+      console.log("Form submitted");
+     }else{
+      console.log("Form has errors.")
+     }
+
+ }
+
+ handleChange(field, e){         
+     let fields = this.state.fields;
+     fields[field] = e.target.value;        
+     this.setState({fields});
+ }
 
   render() {
     return (
@@ -57,14 +101,14 @@ class App extends Component {
                     
                     <div class="box box1">
                       <div class="box-content">
-                      <ScrollAnimation animateIn='slideInLeft'  delay='500' animatePreScroll={false}>   
+                      <ScrollAnimation animateIn='fadeInLeft'  delay='800' animateOnce='true'>   
                             <h3>Clique Meet</h3>
                             <p>Social Interaction App</p>
                             <a class="for-mobile" href="#"></a>
                             </ScrollAnimation>
                       </div>
                       
-                      <ScrollAnimation animateIn='slideInRight'  delay='800' animateOnce='true' animatePreScroll={false}>
+                      <ScrollAnimation animateIn='fadeInRight'  delay='800' animateOnce='true'>
                         <div class="box-image"> 
                           <img src="" alt=""/>
                         </div>
@@ -73,14 +117,14 @@ class App extends Component {
                     
                     <div class="box box2">
                         <div class="box-content">
-                          <ScrollAnimation animateIn='slideInRight'  delay='500' animateOnce='true' animatePreScroll={false}>
+                          <ScrollAnimation animateIn='fadeInRight'  delay='800' animateOnce='true' animatePreScroll={false}>
                             <h3>Zbods</h3>
                             <p>Boutique Spray Tan</p>
                             <a class="for-mobile" href="#"></a>
                           </ScrollAnimation>
                         </div>
 
-                        <ScrollAnimation animateIn='slideInLeft'  delay='800' animateOnce='true' animatePreScroll={false}>
+                        <ScrollAnimation animateIn='fadeInLeft'  delay='800' animateOnce='true' animatePreScroll={false}>
                           <div class="box-image">
                             <img src="" alt=""/>
                           </div>
@@ -89,14 +133,14 @@ class App extends Component {
                     
                     <div class="box box3">
                         <div class="box-content">
-                          <ScrollAnimation animateIn='slideInLeft'  delay='500' animateOnce='true' animatePreScroll={false}>
+                          <ScrollAnimation animateIn='fadeInLeft'  delay='800' animateOnce='true' animatePreScroll={false}>
                             <h3>PolicyMe</h3>
                             <p>Modern Insurance</p>
                             <a class="for-mobile" href="#"></a>
                           </ScrollAnimation>
                         </div>
 
-                        <ScrollAnimation animateIn='slideInRight'  delay='800' animateOnce='true' animatePreScroll={false}>
+                        <ScrollAnimation animateIn='fadeInRight'  delay='800' animateOnce='true' animatePreScroll={false}>
                           <div class="box-image">
                             <img src="" alt=""/>
                           </div>
@@ -105,14 +149,14 @@ class App extends Component {
 
                     <div class="box box4">
                         <div class="box-content">
-                          <ScrollAnimation animateIn='slideInRight'  delay='500' animateOnce='true' animatePreScroll={false}>
+                          <ScrollAnimation animateIn='fadeInRight'  delay='800' animateOnce='true' animatePreScroll={false}>
                             <h3>ApnoMed</h3>
                             <p>Medical Innovation</p>
                             <a class="for-mobile" href="#"></a>
                           </ScrollAnimation>
                         </div>
 
-                        <ScrollAnimation animateIn='slideInLeft'  delay='800' animateOnce='true' animatePreScroll={false}>
+                        <ScrollAnimation animateIn='fadeInLeft'  delay='800' animateOnce='true' animatePreScroll={false}>
                           <div class="box-image">
                             <img src="" alt=""/>
                           </div>
@@ -238,34 +282,30 @@ class App extends Component {
                     </div>
 
                     <ScrollAnimation animateIn='fadeInLeft' delay='500' animateOnce='true'> 
-                    <FormWithConstraints ref={form => this.form = form} onSubmit={this.contactSubmit} noValidate>
+                    <form name="contactform" className="contactform" onSubmit= {this.contactSubmit.bind(this)}>
                       <div class="form-wrap">
                         <div class="input-field">
-                          <input name="name" type="text"  placeholder="Your name" required onChange={this.handleChange}/>
-                          <FieldFeedbacks for="name">
-                            <FieldFeedback when="*"/>
-                          </FieldFeedbacks>
+                          <input name="name" type="text"  placeholder="Your name" onChange={this.handleChange.bind(this, "name")} value={this.state.fields["name"]}/>
+                          <span style={{color: "red"}}>{this.state.errors["name"]}</span>
                         </div>
 
                         <div class="input-field"> 
-                          <input name="email" type="email" placeholder="Email" required onChange={this.handleChange}/>
-                          <FieldFeedbacks for="email">
-                            <FieldFeedback when="*"/>
-                          </FieldFeedbacks>
+                          <input name="email" type="email" placeholder="Email" onChange={this.handleChange.bind(this, "email")} value={this.state.fields["email"]}/>
+                          <span style={{color: "red"}}>{this.state.errors["email"]}</span>
                         </div>
                       </div> 
 
                       <div class="form-wrap">
                         <div class="input-field">
-                          <select name="start" required onChange={this.handleChange} >
+                          <select name="start"  onChange={this.handleChange.bind(this, "start")} value={this.state.fields["start"]}>
                             <option value="">When would you like to start?</option>
                             <option value="value1">This Week</option>
                             <option value="value2">This Month</option>
                             <option value="value3">Next Month</option>
                           </select>
-                          <FieldFeedbacks for="start">
-                            <FieldFeedback when="*"/>
-                          </FieldFeedbacks>
+                          <span style={{color: "red"}}>{this.state.errors["start"]}</span>
+
+                        
                         </div>
                         <div class="input-field">
                           <input type="text" name="website" placeholder="Current website (Optional)" />
@@ -282,8 +322,9 @@ class App extends Component {
                           <input type="submit" value="SUBMIT" />
                         </div>
                       </div>
-                    
-                      </FormWithConstraints>
+                      <span style={{color: "green"}}>{this.state.errors["success"]}</span>
+                      <span style={{color: "red"}}>{this.state.errors["error"]}</span>
+                      </form>
                       </ScrollAnimation>  
                   </div>
 
