@@ -1,4 +1,4 @@
-It is asimple landing page app.
+It is a simple landing page app.
 
 Command to run
 
