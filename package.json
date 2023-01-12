@@ -4,7 +4,7 @@
   "private": true,
   "dependencies": {
     "prop-types": "^15.6.1",
-    "react": "^16.4.0",
+    "react": "^16.14.0",
     "react-animate-on-scroll": "^2.1.5",
     "react-animated-css": "^1.0.4",
     "react-collapsible": "^2.2.0",
